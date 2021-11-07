@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction Model Deployment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+
+<body class="bg-info mt-5">
+    <div class="container bg-dark text-white">
+		<div class="row">
+			<div class="col-sm-4 offset-sm-4 text-center">
+				<h2 class="text-info text-center my-5">Heart Disease Prediction Model</h2>
+				
+				<form action="{{ url_for('predict')}}" method="post">
+					<div class="form-group">
+						<input class="form-control mb-1" type="text" name="age" placeholder="Age" required="required" />
+						<input class="form-control mb-1" type="text" name="trestbps" placeholder="trestbps" required="required" />
+						<input class="form-control mb-1" type="text" name="chol" placeholder="chol" required="required" />
+						<input class="form-control mb-1" type="text" name="thalach" placeholder="thalach" required="required" />
+					</div>
+			
+					<button type="submit" class="btn btn-info btn-large">Predict</button>
+				</form>
+			
+				<br>
+				<br>
+				{{ prediction_text }}
+			</div>
+		</div>
+    
+    </div>
+</body>
+</html>
